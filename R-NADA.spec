@@ -4,13 +4,13 @@
 #
 Name     : R-NADA
 Version  : 1.6.1
-Release  : 12
+Release  : 13
 URL      : https://cran.r-project.org/src/contrib/NADA_1.6-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/NADA_1.6-1.tar.gz
 Summary  : Nondetects and Data Analysis for Environmental Data
 Group    : Development/Tools
 License  : GPL-2.0+
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 No detailed description available
@@ -23,11 +23,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523322493
+export SOURCE_DATE_EPOCH=1552778254
 
 %install
+export SOURCE_DATE_EPOCH=1552778254
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523322493
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -62,8 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library NADA|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  NADA || :
 
 
 %files
