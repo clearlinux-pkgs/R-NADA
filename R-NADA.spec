@@ -4,7 +4,7 @@
 #
 Name     : R-NADA
 Version  : 1.6.1.1
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/NADA_1.6-1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/NADA_1.6-1.1.tar.gz
 Summary  : Nondetects and Data Analysis for Environmental Data
@@ -17,21 +17,22 @@ No detailed description available
 
 %prep
 %setup -q -c -n NADA
+cd %{_builddir}/NADA
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584894452
+export SOURCE_DATE_EPOCH=1589521764
 
 %install
-export SOURCE_DATE_EPOCH=1584894452
+export SOURCE_DATE_EPOCH=1589521764
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
